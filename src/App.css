@@ -1,0 +1,11 @@
+/* src/App.css or you can move this to index.css */
+body {
+  margin: 0;
+  font-family: sans-serif; /* We'll set the actual font from Figma later */
+  /* Add background color if your Figma design has one for the whole page */
+}
+
+.app-container {
+  /* This can be a wrapper for your entire page if needed */
+  /* For now, it's just a placeholder */
+}

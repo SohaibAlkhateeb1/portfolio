@@ -1,0 +1,66 @@
+/* src/components/Testimonials/Testimonials.module.css */
+.testimonialsSection {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: var(--color-section-bg); /* UPDATED */
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-heading); /* UPDATED */
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.sectionSubtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-body); /* UPDATED */
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.5rem;
+  line-height: 1.6;
+}
+
+.certificateWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* For animation - initially hidden */
+  transform: translateY(30px) scale(0.95); /* Start slightly down and smaller */
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.certificateWrapper.visible { /* This class makes it visible */
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.certificateImage {
+  max-width: 100%;
+  width: 800px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  display: block;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card-bg);
+}
+.imagePlaceholder {
+  /* ... existing styles ... */
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-subtle);
+  box-shadow: var(--card-shadow);
+}
+
+/* ... responsive styles ... */
+@media (max-width: 992px) { .certificateImage { width: 650px; } }
+@media (max-width: 768px) {
+    .testimonialsSection { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .sectionTitle { font-size: 2rem; } .sectionSubtitle { margin-bottom: 2.5rem; font-size: 0.95rem; }
+    .certificateImage { width: 100%; }
+}

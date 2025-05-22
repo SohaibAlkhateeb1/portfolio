@@ -1,0 +1,118 @@
+/* src/components/Contact/Contact.module.css */
+.contactSection {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: var(--color-bg); /* UPDATED */
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-text-heading); /* UPDATED */
+  text-align: center;
+  margin-bottom: 0.75rem;
+  position: relative; z-index: 2;
+}
+.sectionSubtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-text-body); /* UPDATED */
+  text-align: center;
+  max-width: 550px;
+  margin-left: auto; margin-right: auto;
+  margin-bottom: 4rem;
+  line-height: 1.7;
+  position: relative; z-index: 2;
+}
+
+.contactInfoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  position: relative; z-index: 2;
+}
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  background-color: var(--color-section-bg); /* UPDATED from #F9FAFB */
+  border-radius: 12px;
+  box-shadow: var(--card-shadow); /* UPDATED */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  color: var(--color-text-body); /* Initial text color for items */
+  min-width: 300px;
+  flex: 1;
+  max-width: 400px;
+  border: 1px solid var(--color-border);
+}
+.contactItem:hover {
+  transform: translateY(-8px) scale(1.02);
+  /* Hover shadow can be stronger */
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+.contactItem:hover .iconWrapper { background-color: rgba(255, 255, 255, 0.15); }
+.contactItem:hover .contactIcon {
+  /* fill will only work if it's an SVG component */
+  /* For PNG, if you want color change, you might use filter: brightness(0) invert(1); */
+  /* Assuming PNG icon is dark and needs to be white on hover */
+  filter: brightness(0) invert(1);
+}
+.contactItem:hover .contactLabel { color: rgba(255, 255, 255, 0.85); }
+.contactItem:hover .contactDetail { color: var(--color-text-on-primary); }
+
+
+.iconWrapper {
+  width: 55px; height: 55px;
+  border-radius: 50%;
+  background-color: rgba(0, 167, 142, 0.1); /* Light primary, consider dark mode variant */
+  display: flex; justify-content: center; align-items: center;
+  transition: background-color 0.3s ease;
+}
+.contactIcon {
+  width: 26px; height: 26px;
+  /* fill: var(--color-primary); */ /* For SVG components */
+  /* PNGs will use their embedded color. If icon is light for dark mode, it might need filter for light mode. */
+}
+
+.contactText { display: flex; flex-direction: column; }
+.contactLabel {
+  font-family: var(--font-body);
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--color-text-subtle); /* UPDATED */
+  margin-bottom: 0.2rem;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+.contactDetail {
+  font-family: var(--font-heading);
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--color-text-heading); /* UPDATED */
+  transition: color 0.3s ease;
+}
+
+.backgroundShapes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1; }
+.shape { position: absolute; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; opacity: 0.08; background-color: var(--color-primary); }
+.shape1 { width: 400px; height: 400px; top: -100px; left: -150px; transform: rotate(30deg); }
+.shape2 { width: 300px; height: 300px; bottom: -80px; right: -100px; transform: rotate(-45deg); opacity: 0.1; }
+.shape3 { width: 200px; height: 200px; top: 50%; left: 40%; transform: translateY(-50%) rotate(15deg); background-color: var(--color-secondary-blob); opacity: 0.06; }
+
+/* ... (Keep your existing responsive styles) ... */
+@media (max-width: 768px) {
+    .contactSection { padding-top: 4rem; padding-bottom: 4rem; }
+    .sectionTitle { font-size: 2.2rem; } .sectionSubtitle { font-size: 0.95rem; margin-bottom: 3rem; }
+    .contactInfoWrapper { flex-direction: column; gap: 1.5rem; align-items: center; }
+    .contactItem { width: 100%; max-width: 380px; padding: 1.25rem 1.5rem; }
+    .contactDetail { font-size: 1rem; }
+    .shape1 { width: 300px; height: 300px; top: -80px; left: -120px;}
+    .shape2 { width: 250px; height: 250px; bottom: -60px; right: -80px;}
+    .shape3 { display: none; }
+}

@@ -1,0 +1,189 @@
+/* src/components/Hero/Hero.module.css */
+.heroSection {
+  background-color: var(--color-bg);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.heroContent {}
+
+.introText {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-text-body); /* UPDATED */
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.nameText {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.1rem;
+  line-height: 1.2;
+}
+
+.titleText {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-text-heading); /* UPDATED */
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+}
+
+.descriptionText {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-subtle); /* UPDATED */
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.btnPrimary {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border: 2px solid var(--color-primary);
+}
+.btnPrimary:hover {
+  background-color: var(--color-primary-darker);
+  border-color: var(--color-primary-darker);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 167, 142, 0.3); /* This shadow color might need a dark mode variant */
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-border); /* UPDATED */
+}
+.btnSecondary:hover {
+  border-color: var(--color-primary);
+  /* Consider if background should change on hover for dark mode */
+  /* background-color: rgba(0, 167, 142, 0.1); */
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.6rem;
+  /* fill: currentColor; */ /* No effect on PNG */
+}
+.btnIconPlaceholder {
+  margin-right: 0.6rem;
+  font-size: 1.1em;
+}
+
+.heroImageWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+}
+
+.profileImage {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 12px;
+  z-index: 10;
+  position: relative;
+  object-fit: cover;
+}
+
+.blob {
+  position: absolute;
+  z-index: 1;
+  opacity: 1;
+}
+.blob1 {
+  width: 400px;
+  height: 380px;
+  background-color: var(--color-primary); /* Primary color usually fine */
+  border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+  transform: translate(-20%, -15%) rotate(15deg);
+}
+.blob2 {
+  width: 360px;
+  height: 340px;
+  background-color: var(--color-secondary-blob); /* Secondary color might need dark variant */
+  border-radius: 30% 70% 60% 40% / 60% 40% 50% 50%;
+  transform: translate(25%, 20%) rotate(-10deg);
+}
+
+.socialLinksContainer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.8rem;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+}
+.socialLinksContainer a img { /* Target the img tag specifically for PNGs */
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease-in-out;
+  /* For PNGs, if you want them to change color, you'd need separate assets or CSS filters */
+  /* E.g., for dark mode, a light PNG might need: filter: brightness(0.8); */
+}
+.socialLinksContainer a:hover img {
+  transform: translateY(-2px) scale(1.1);
+  /* For PNGs, to simulate color change, you might change opacity or use a filter */
+  /* opacity: 0.8; */
+}
+
+/* ... (Keep your existing responsive styles, they should adapt if semantic vars are used correctly) ... */
+@media (max-width: 992px) { /* Tablet and below */
+    .heroContainer { gap: 2rem; }
+    .nameText { font-size: 2.4rem; }
+    .titleText { font-size: 3.2rem; }
+    .profileImage { max-width: 280px; }
+    .blob1 { width: 350px; height: 330px; }
+    .blob2 { width: 310px; height: 290px; }
+}
+@media (max-width: 768px) { /* Mobile */
+    .heroSection { padding-top: 2rem; padding-bottom: 2rem; min-height: auto; text-align: center; }
+    .heroContainer { grid-template-columns: 1fr; gap: 2.5rem; }
+    .heroContent { order: 2; }
+    .heroImageWrapper { order: 1; min-height: 350px; margin-bottom: 1rem; }
+    .profileImage { max-width: 240px; }
+    .blob1 { width: 300px; height: 280px; transform: translate(-15%, -10%) rotate(10deg); }
+    .blob2 { width: 260px; height: 240px; transform: translate(15%, 15%) rotate(-5deg); }
+    .descriptionText { margin-left: auto; margin-right: auto; }
+    .buttonGroup { justify-content: center; }
+    .socialLinksContainer { justify-content: center; margin-top: 2.5rem; }
+}

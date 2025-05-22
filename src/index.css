@@ -1,0 +1,251 @@
+/* src/index.css */
+:root {
+  /* Define your fonts (replace with your actual font names) */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Define your color palette (get exact hex codes from Figma) */
+  --color-primary: #00A78E;         /* Main teal color */
+  --color-primary-darker: #008f79;  /* For hover states */
+  --color-secondary-blob: #A0D9CF; /* Lighter teal for one of the blobs */
+
+  --color-text-dark: #1A202C;       /* For main headings like "UI & UX Designer" */
+  --color-text-medium: #4A5568;     /* For nav links, "Hi I am", smaller text */
+  --color-text-light: #718096;      /* For paragraph descriptions */
+  --color-text-on-primary: #FFFFFF; /* Text on teal buttons */
+
+  --color-background: #FFFFFF;
+  --color-border-light: #E2E8F0;    /* For light borders like Download CV button */
+
+  --color-icon-default: #4A5568;
+  --color-icon-social: #2D3748;     /* For social media icons */
+
+  /* Theme Toggle Colors (example) */
+  --theme-toggle-bg: #CBD5E0;
+  --theme-toggle-button: #FFFFFF;
+  --theme-toggle-icon: #4A5568;
+}
+
+/* Basic Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-medium);
+  background-color: var(--color-background);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/* Container for consistent width */
+.container {
+  width: 90%;
+  max-width: 1140px; /* Adjust based on Figma's main content width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* src/index.css */
+:root {
+  /* --- FONT DEFINITIONS (Likely don't change with theme) --- */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* --- PRIMARY/ACCENT COLORS (May or may not change with theme) --- */
+  --color-primary: #00A78E;
+  --color-primary-darker: #008f79;
+  --color-secondary-blob: #A0D9CF; /* For blobs, might need a dark mode variant */
+  --color-text-on-primary: #FFFFFF;
+
+  /* --- LIGHT THEME (DEFAULT) --- */
+  --color-bg-light: #FFFFFF;
+  --color-text-heading-light: #1A202C;
+  --color-text-body-light: #4A5568;
+  --color-text-subtle-light: #718096;
+  --color-border-light: #E2E8F0;
+  --color-card-bg-light: #FFFFFF;
+  --color-section-bg-light: #F9FAFB; /* For Services, Testimonials */
+  --color-footer-bg-light: #333333;
+  --color-footer-text-light: #A0AEC0;
+  --color-footer-nav-link-light: #CBD5E0;
+  --color-footer-icon-light: #CBD5E0;
+  --color-icon-default-light: #4A5568;
+  --color-icon-social-hero-light: #2D3748;
+  --theme-toggle-bg-light: #E2E8F0; /* Light grey for toggle */
+  --theme-toggle-button-light: #FFFFFF;
+  --theme-toggle-icon-light: #4A5568; /* Dark icons on light toggle */
+  --navbar-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --card-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --input-bg-light: #FFFFFF;
+  --input-border-light: #E2E8F0;
+  --filter-button-bg-light: #F3F4F6;
+  --filter-button-text-light: var(--color-text-body-light);
+  --filter-button-hover-bg-light: #E5E7EB;
+
+
+  /* --- DARK THEME --- */
+  --color-bg-dark: #1A202C; /* Dark blue/grey */
+  --color-text-heading-dark: #E2E8F0;  /* Light text for headings */
+  --color-text-body-dark: #A0AEC0; /* Medium light text */
+  --color-text-subtle-dark: #718096; /* Dimmer text */
+  --color-border-dark: #4A5568;
+  --color-card-bg-dark: #2D3748;    /* Darker card background */
+  --color-section-bg-dark: #242B37; /* Slightly lighter than main dark bg for sections */
+  --color-footer-bg-dark: #171923; /* Even darker footer */
+  --color-footer-text-dark: #A0AEC0;
+  --color-footer-nav-link-dark: #A0AEC0;
+  --color-footer-icon-dark: #A0AEC0;
+  --color-icon-default-dark: #A0AEC0;
+  --color-icon-social-hero-dark: #A0AEC0;
+  --theme-toggle-bg-dark: #4A5568; /* Darker grey for toggle */
+  --theme-toggle-button-dark: #2D3748; /* Even darker button */
+  --theme-toggle-icon-dark: #E2E8F0; /* Light icons on dark toggle */
+  --navbar-shadow-dark: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --card-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --input-bg-dark: #2D3748;
+  --input-border-dark: #4A5568;
+  --filter-button-bg-dark: #2D3748;
+  --filter-button-text-dark: var(--color-text-body-dark);
+  --filter-button-hover-bg-dark: #4A5568;
+
+
+  /* --- SEMANTIC VARIABLES (THESE ARE WHAT YOUR COMPONENTS WILL USE) --- */
+  --color-bg: var(--color-bg-light);
+  --color-text-heading: var(--color-text-heading-light);
+  --color-text-body: var(--color-text-body-light);
+  --color-text-subtle: var(--color-text-subtle-light);
+  --color-border: var(--color-border-light);
+  --color-card-bg: var(--color-card-bg-light);
+  --color-section-bg: var(--color-section-bg-light);
+  --color-footer-bg: var(--color-footer-bg-light);
+  --color-footer-text: var(--color-footer-text-light);
+  --color-footer-nav-link: var(--color-footer-nav-link-light);
+  --color-footer-icon: var(--color-footer-icon-light);
+  --color-icon-default: var(--color-icon-default-light);
+  --color-icon-social-hero: var(--color-icon-social-hero-light);
+  --theme-toggle-bg: var(--theme-toggle-bg-light);
+  --theme-toggle-button: var(--theme-toggle-button-light);
+  --theme-toggle-icon: var(--theme-toggle-icon-light);
+  --navbar-shadow: var(--navbar-shadow-light);
+  --card-shadow: var(--card-shadow-light);
+  --input-bg: var(--input-bg-light);
+  --input-border: var(--input-border-light);
+  --filter-button-bg: var(--filter-button-bg-light);
+  --filter-button-text: var(--filter-button-text-light);
+  --filter-button-hover-bg: var(--filter-button-hover-bg-light);
+
+}
+
+html.dark-mode {
+  --color-bg: var(--color-bg-dark);
+  --color-text-heading: var(--color-text-heading-dark);
+  --color-text-body: var(--color-text-body-dark);
+  --color-text-subtle: var(--color-text-subtle-dark);
+  --color-border: var(--color-border-dark);
+  --color-card-bg: var(--color-card-bg-dark);
+  --color-section-bg: var(--color-section-bg-dark);
+  --color-footer-bg: var(--color-footer-bg-dark);
+  --color-footer-text: var(--color-footer-text-dark);
+  --color-footer-nav-link: var(--color-footer-nav-link-dark);
+  --color-footer-icon: var(--color-footer-icon-dark);
+  --color-icon-default: var(--color-icon-default-dark);
+  --color-icon-social-hero: var(--color-icon-social-hero-dark);
+  --theme-toggle-bg: var(--theme-toggle-bg-dark);
+  --theme-toggle-button: var(--theme-toggle-button-dark);
+  --theme-toggle-icon: var(--theme-toggle-icon-dark);
+  --navbar-shadow: var(--navbar-shadow-dark);
+  --card-shadow: var(--card-shadow-dark);
+  --input-bg: var(--input-bg-dark);
+  --input-border: var(--input-border-dark);
+  --filter-button-bg: var(--filter-button-bg-dark);
+  --filter-button-text: var(--filter-button-text-dark);
+  --filter-button-hover-bg: var(--filter-button-hover-bg-dark);
+}
+
+/* Basic Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-body); /* Use semantic variable */
+  background-color: var(--color-bg); /* Use semantic variable */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+/* ... rest of your global styles (img, button, a, ul, li, .container) ... */
+/* Ensure they use semantic variables where color is involved if needed */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Links will inherit color, can be overridden in components */
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}

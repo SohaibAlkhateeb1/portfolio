@@ -1,0 +1,125 @@
+/* src/components/Projects/Projects.module.css */
+.projectsSection {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: var(--color-bg); /* UPDATED */
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-heading); /* UPDATED */
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.sectionSubtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-body); /* UPDATED */
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.filterButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.filterButton {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--filter-button-text); /* UPDATED */
+  background-color: var(--filter-button-bg); /* UPDATED */
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid transparent; /* Can use var(--color-border) for themed border */
+  transition: all 0.3s ease;
+}
+.filterButton.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border-color: var(--color-primary);
+  /* box-shadow for active button might need dark mode variant */
+}
+.filterButton:not(.active):hover {
+  background-color: var(--filter-button-hover-bg); /* UPDATED */
+  color: var(--color-text-heading); /* Or a slightly darker --filter-button-text */
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+.projectCard {
+  background-color: var(--color-card-bg); /* UPDATED */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow); /* UPDATED */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  border: 1px solid var(--color-border); /* Added border */
+}
+.projectCard:hover {
+  transform: translateY(-8px);
+  /* Hover shadow can be more pronounced */
+}
+
+.projectLink { display: block; text-decoration: none; color: inherit; }
+.projectImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--color-border); /* UPDATED */
+}
+.projectInfo { padding: 1.25rem; }
+.projectCategory {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: rgba(0, 167, 142, 0.1); /* This light teal bg might need dark mode adjustment */
+  /* For dark mode: background-color: rgba(from --color-primary with low alpha, e.g., var(--color-primary) with opacity in JS, or a dedicated dark var) */
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.projectTitle {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-heading); /* UPDATED */
+  margin-bottom: 0.3rem;
+}
+.noProjectsFound {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-text-body); /* UPDATED */
+  padding: 2rem 0;
+}
+
+/* ... (Keep your existing responsive styles) ... */
+@media (max-width: 992px) {
+    .projectsGrid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .projectImage { height: 200px; }
+}
+@media (max-width: 768px) {
+    .projectsSection { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .sectionTitle { font-size: 2rem; } .sectionSubtitle { margin-bottom: 2rem; font-size: 0.95rem; }
+    .filterButtons { gap: 0.6rem; margin-bottom: 2rem; }
+    .filterButton { font-size: 0.85rem; padding: 0.5rem 1rem; }
+    .projectsGrid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .projectImage { height: 240px; }
+}

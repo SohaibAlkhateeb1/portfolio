@@ -1,0 +1,253 @@
+/* src/components/Navbar/Navbar.module.css */
+.navbar {
+  background-color: var(--color-bg); /* Semantic variable for background */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: var(--navbar-shadow); /* Semantic variable for shadow */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 70px; /* Adjust based on your Figma design */
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* This will be constrained by the global .container class's max-width */
+}
+
+.navLogoLink {
+  display: inline-block;
+  /* Ensure logo doesn't shrink too much if space is tight */
+  flex-shrink: 0;
+}
+
+.logoImage {
+  height: 32px; /* Adjust to your logo's height */
+  width: auto;
+  display: block; /* Remove extra space below image if any */
+}
+
+.logoText {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem; /* Adjust spacing based on Figma for desktop */
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-size: 0.95rem; /* Adjust from Figma */
+  font-weight: 500;
+  color: var(--color-text-body); /* Semantic variable */
+  transition: color 0.2s ease-in-out;
+  position: relative;
+  padding: 0.5rem 0.25rem; /* Padding for click area and underline positioning */
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.navLink.active {
+  color: var(--color-primary);
+  font-weight: 600; /* Or other visual distinction for active link */
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+.navLink:hover::after,
+.navLink.active::after {
+  width: 100%;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Space between theme toggle and mobile menu button */
+}
+
+.themeToggle {
+  width: 56px;
+  height: 28px;
+  background-color: var(--theme-toggle-bg);
+  border-radius: 14px;
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: background-color 0.3s ease;
+  border: 1px solid var(--color-border);
+}
+
+.themeToggleIcons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.sunIcon,
+.moonIcon {
+  color: var(--theme-toggle-icon);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out 0.1s, color 0.3s ease;
+  position: absolute;
+}
+
+.themeToggle:not(.darkModeActive) .sunIcon {
+  opacity: 1;
+  left: 6px;
+}
+.themeToggle.darkModeActive .moonIcon {
+  opacity: 1;
+  right: 6px;
+}
+.themeToggle:not(.darkModeActive) .moonIcon { opacity: 0; }
+.themeToggle.darkModeActive .sunIcon { opacity: 0; }
+
+.themeToggleButton {
+  width: 22px;
+  height: 22px;
+  background-color: var(--theme-toggle-button);
+  border-radius: 50%;
+  position: absolute;
+  left: 3px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.themeToggle.darkModeActive .themeToggleButton {
+  transform: translateX(calc(56px - 22px - 3px - 3px));
+}
+
+/* Styles for mobile menu button */
+.mobileMenuButton {
+  display: none; /* Hidden on desktop by default */
+  font-size: 1.8rem; /* Adjust size of ☰ / ✕ icon */
+  color: var(--color-text-body);
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  line-height: 1; /* Ensure icon is vertically centered if it's text */
+  z-index: 1005; /* Ensure it's above the mobile menu if they overlap */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navMenu {
+    /* --- Mobile Menu Styling (when it's a dropdown) --- */
+    /* Layout & Positioning */
+    flex-direction: column;
+    align-items: center; /* Center links horizontally */
+    gap: 0.5rem; /* Spacing between mobile nav links */
+
+    position: absolute;
+    top: 70px; /* Height of the .navbar, so menu appears below it */
+    left: 0;
+    width: 100%;
+    
+    /* Appearance */
+    background-color: var(--color-bg-overlay, var(--color-bg)); /* Use a specific var or fallback */
+    padding: 1.5rem 0; /* Vertical padding for the menu box */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Shadow for depth */
+    border-top: 1px solid var(--color-border-subtle, rgba(0,0,0,0.05)); /* Optional top border */
+    z-index: 999; /* Below navbar (1000) but above page content */
+
+    /* --- Initial Hidden State & Transition --- */
+    transform: translateY(-20px); /* Start slightly above for a fade-in-down effect */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                visibility 0s linear 0.3s; /* Delay visibility change until opacity transition ends */
+  }
+
+  .navMenu.mobileNavOpen {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                visibility 0s linear 0s; /* Make visible immediately when starting to show */
+  }
+
+  .navMenu .navLink {
+    font-size: 1.05rem; /* Slightly larger font for mobile tap targets */
+    padding: 0.8rem 1rem; /* Larger tap area */
+    width: 90%; /* Make links take substantial width */
+    text-align: center;
+    border-bottom: 1px solid var(--color-border-very-subtle, rgba(128,128,128,0.1)); /* Subtle separator */
+  }
+  .navMenu .navLink:last-child {
+    border-bottom: none; /* No border for the last link */
+  }
+
+  /* Hide or adjust desktop underline effect on mobile */
+  .navMenu .navLink::after {
+    display: none; /* Simplest: hide underline on mobile */
+  }
+  /* Alternative: if you want to keep underline, adjust for centered text
+  .navMenu .navLink::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .navMenu .navLink:hover::after,
+  .navMenu .navLink.active::after {
+    width: 60%; // Or a fixed pixel value
+  }
+  */
+
+  .mobileMenuButton {
+    display: inline-flex; /* Show hamburger button on mobile */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Define CSS variables (ideally in your :root or a theme file) */
+/* Example:
+:root {
+  --color-bg-overlay: var(--color-bg); // Default to main background
+  --color-border-subtle: #e0e0e0;
+  --color-border-very-subtle: #f0f0f0;
+}
+[data-theme="dark"] {
+  --color-bg-overlay: #2a2a2a; // Slightly different for dark mode if needed
+  --color-border-subtle: #3a3a3a;
+  --color-border-very-subtle: #2f2f2f;
+}
+*/

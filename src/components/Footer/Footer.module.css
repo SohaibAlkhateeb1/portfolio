@@ -1,0 +1,85 @@
+/* src/components/Footer/Footer.module.css */
+.footerSection {
+  background-color: var(--color-footer-bg); /* UPDATED */
+  color: var(--color-footer-text); /* UPDATED */
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footerTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border); /* UPDATED from #4A5568, or use a specific --footer-border-color */
+  margin-bottom: 2rem;
+}
+
+.footerLogoLink { display: inline-block; }
+.footerLogoImage {
+  height: 35px;
+  width: auto;
+  /* If logo is dark PNG and footer is dark, you need a light PNG or filter */
+  /* html.dark-mode & { filter: brightness(0) invert(1); } */
+}
+/* If your logo itself needs to change for dark mode, you might need conditional rendering in JSX or a CSS filter */
+:global(html.dark-mode) .footerLogoImage { /* Example for inverting a dark logo on dark mode */
+  /* filter: brightness(0) invert(1); */ /* Uncomment if your logo PNG is dark */
+}
+
+
+.footerNavMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+.footerNavLink {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-footer-nav-link); /* UPDATED */
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+.footerNavLink:hover { color: var(--color-primary); }
+
+.footerSocialLinks { display: flex; align-items: center; gap: 1.25rem; }
+.socialIconLink { display: inline-block; transition: transform 0.3s ease; }
+.socialIconLink:hover { transform: scale(1.1); }
+.socialIcon {
+  width: 22px; height: 22px; display: block;
+  /* For PNGs, color is fixed. For SVGs, you'd use fill: var(--color-footer-icon); */
+  /* If PNGs are dark and footer is dark, you might need filter for dark mode: */
+  /* html.dark-mode & { filter: brightness(0) invert(1); } */
+}
+:global(html.dark-mode) .socialIcon { /* Example for inverting dark PNG icons on dark mode */
+   /* filter: brightness(0) invert(1); */ /* Uncomment if your social PNGs are dark */
+}
+
+
+.footerBottom { text-align: center; }
+.copyrightText {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  /* Color is inherited from .footerSection or can be var(--color-footer-text) */
+}
+.copyrightName {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+.copyrightName:hover { text-decoration: underline; }
+
+/* ... (Keep your existing responsive styles) ... */
+@media (min-width: 768px) {
+    .footerTop { flex-direction: row; justify-content: space-between; gap: 1.5rem; }
+    .footerNavMenu { gap: 1.5rem; }
+}
+@media (max-width: 767px) {
+     .footerSection { padding-top: 3rem; }
+     .footerTop { padding-bottom: 2rem; margin-bottom: 1.5rem; }
+}
