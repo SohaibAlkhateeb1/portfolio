@@ -9,6 +9,8 @@ import palStoreImg from '../../assets/images/project-palstore.png';
 import TrackItImg from '../../assets/images/project-TrackIt.png';
 import pawfectionImg from '../../assets/images/project-pawfection.png';
 import sohaibPortfolioImg from '../../assets/images/project-sohaibportfolio.png';
+import khadamatiImg from '../../assets/images/project-khadamati.png';
+import fuloosiImg from '../../assets/images/project-fuloosi.png';
 
 // Project Data
 const allProjectsData = [
@@ -17,14 +19,14 @@ const allProjectsData = [
     title: 'AuraStride',
     image: auraStrideImg,
     categories: ['all', 'ui/ux', 'mobile app'],
-    description: 'A sleek mobile application for tracking fitness and well-being.', // Optional
-    link: 'https://www.behance.net/gallery/221025965/AuraStride', 
+    description: 'A sleek mobile application for tracking fitness and well-being.',
+    link: 'https://www.behance.net/gallery/221025965/AuraStride',
   },
   {
     id: 2,
     title: 'Anime Saga',
     image: animeSagaImg,
-    categories: ['all', 'ui/ux', 'mobile app'], // Based on your description, this might also be 'web' if it's a website.
+    categories: ['all', 'ui/ux', 'mobile app'],
     description: 'Engaging platform for anime enthusiasts.',
     link: 'https://www.behance.net/gallery/220967637/AnimeSaga',
   },
@@ -39,9 +41,9 @@ const allProjectsData = [
   {
     id: 4,
     title: 'TrackIt',
-    image:  TrackItImg , 
+    image: TrackItImg,
     categories: ['all', 'mobile app'],
-    description: 's a smart tracking and management application designed to help users monitor activities, tasks, or assets in real-time.',
+    description: 'A smart tracking and management app for real-time monitoring of tasks and activities.',
     link: 'https://www.figma.com/design/HESYf1dmiQzqte1ElkRzsC/TrackIt?node-id=0-1&t=fchxFLLLuR04GGm9-1',
   },
   {
@@ -59,6 +61,22 @@ const allProjectsData = [
     categories: ['all', 'web'],
     description: 'Personal portfolio website showcasing design work.',
     link: 'https://www.figma.com/design/kcOvjXNSpLmsKs30OSgMMh/Personal-portfolio?node-id=0-1&t=fchxFLLLuR04GGm9-1',
+  },
+  {
+    id: 7,
+    title: 'Khadamati',
+    image: khadamatiImg,
+    categories: ['all', 'ui/ux', 'app design'],
+    description: 'Khadamati is a bilingual, mobile-first platform designed to connect people across Palestine with trusted local service providers such as electricians, tutors, and carpenters. Addressing the common challenges of relying on word of mouth or social media groups, Khadamati offers a centralized and reliable database featuring verified professionals and user reviews. By bridging the gap between customers and freelancers or small businesses, the app aims to improve service quality, expand reach, and build trust within communities. Available as a mobile app, Khadamati empowers users to easily find and book local services with confidence.',
+    link: 'https://www.behance.net/gallery/229224089/Khadamati',
+  },
+  {
+    id: 8,
+    title: 'فلوسي (My Money)',
+    image: fuloosiImg,
+    categories: ['all', 'ui/ux', 'mobile app'],
+    description: 'Fuloosi is a modern Arabic finance app designed to help you manage your money with ease. Whether you\'re tracking daily expenses, monitoring income, or setting savings goals, Fuloosi gives you full control over your budget. With a simple dark-mode interface, insightful analytics, and smart alerts, Fuloosi makes managing your finances easier, clearer, and smarter — all in your native language.',
+    link: 'https://www.behance.net/gallery/229274819/-(My-money)',
   },
 ];
 
