@@ -11,6 +11,7 @@ import pawfectionImg from '../../assets/images/project-pawfection.png';
 import sohaibPortfolioImg from '../../assets/images/project-sohaibportfolio.png';
 import khadamatiImg from '../../assets/images/project-khadamati.png';
 import fuloosiImg from '../../assets/images/project-fuloosi.png';
+import ta3leemImg from '../../assets/images/project-Ta3leem.png';
 
 // Project Data
 const allProjectsData = [
@@ -78,7 +79,17 @@ const allProjectsData = [
     description: 'Fuloosi is a modern Arabic finance app designed to help you manage your money with ease. Whether you\'re tracking daily expenses, monitoring income, or setting savings goals, Fuloosi gives you full control over your budget. With a simple dark-mode interface, insightful analytics, and smart alerts, Fuloosi makes managing your finances easier, clearer, and smarter — all in your native language.',
     link: 'https://www.behance.net/gallery/229274819/-(My-money)',
   },
+  {
+    id: 9,
+    title: 'Ta3leem',
+    image: ta3leemImg, 
+    categories: ['all', 'ui/ux', 'website'],
+    description:
+      'Ta3leem is a modern web-based learning platform designed for students and young professionals in Palestine and the Arab world. We offer practical, skill-based courses in both Arabic and English — covering topics like design, programming, freelancing, and digital marketing — all delivered through a simple, mobile-friendly interface. Unlike generic global platforms, Ta3leem is culturally tailored, locally relevant, and focused on helping learners gain real-world skills that lead to certifications, freelance opportunities, and career growth. Whether you\'re looking to build your first portfolio or upskill for the job market, Ta3leem empowers you to learn at your own pace, in your preferred language, and on your own terms.',
+    link: 'https://www.behance.net/gallery/229695975/Ta3leem',
+  },
 ];
+
 
 // Define filter categories based on your project data
 const filterCategories = ['All', 'UI/UX', 'Website Design', 'App Design'];
