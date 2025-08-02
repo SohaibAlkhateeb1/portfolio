@@ -35,7 +35,7 @@ const allProjectsData = [
     id: 3,
     title: 'Ta3leem',
     image: ta3leemImg,
-    categories: ['all', 'ui/ux', 'website'],
+    categories: ['all', 'ui/ux', 'web'],
     description: 'Ta3leem is a modern web-based learning platform designed for students and young professionals in Palestine and the Arab world. We offer practical, skill-based courses in both Arabic and English — covering topics like design, programming, freelancing, and digital marketing — all delivered through a simple, mobile-friendly interface. Unlike generic global platforms, Ta3leem is culturally tailored, locally relevant, and focused on helping learners gain real-world skills that lead to certifications, freelance opportunities, and career growth. Whether you\'re looking to build your first portfolio or upskill for the job market, Ta3leem empowers you to learn at your own pace, in your preferred language, and on your own terms.',
     link: 'https://www.behance.net/gallery/229695975/Ta3leem',
   },
